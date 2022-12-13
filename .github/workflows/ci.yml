@@ -10,8 +10,19 @@ jobs:
 
       - name: build
         run: |
-          tree
-          ./buildall.sh
+          (cd amd && npm i && npx tsc --sourcemap --module amd app.ts)
+          (cd d3 && npm i && npx tsc --sourcemap data.ts)
+          (cd greeter && npm i && npx tsc --sourcemap greeter.ts)
+          (cd interfaces && npm i && npx tsc --sourcemap interfaces.ts)
+          (cd jquery && npm i && npx tsc --sourcemap --target ES5 parallax.ts)
+          (cd mankala && npm i && npx tsc --sourcemap --out mankalagame.js Driver.ts)
+          (cd node && npm i && npx tsc --sourcemap --module commonjs  src/HttpServer.ts)
+          (cd node && npm i && npx tsc --sourcemap --module commonjs  src/TcpServer.ts)
+          (cd raytracer && npm i && npx tsc --sourcemap  raytracer.ts)
+          (cd simple && npm i && npx tsc --sourcemap  animals.ts)
+          (cd todomvc && npm i && npx tsc --sourcemap  js/todos.ts)
+          (cd warship && npm i && npx tsc --sourcemap --target ES6 warship.ts)
+        shell: bash
 
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
