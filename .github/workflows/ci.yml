@@ -10,7 +10,7 @@ jobs:
 
       - name: build
         run: |
-          (cd amd && npm i && npx tsc --sourcemap --module amd app.ts)
+          (cd amd && pwd && npm i && npx tsc --sourcemap --module amd app.ts)
           (cd d3 && npm i && npx tsc --sourcemap data.ts)
           (cd greeter && npm i && npx tsc --sourcemap greeter.ts)
           (cd interfaces && npm i && npx tsc --sourcemap interfaces.ts)
