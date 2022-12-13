@@ -10,6 +10,7 @@ jobs:
 
       - name: build
         run: |
+          tree
           ./buildall.sh
 
       - name: Run Trivy vulnerability scanner in fs mode
